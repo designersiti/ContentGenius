@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Search, Bell, Settings } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -73,8 +74,11 @@ const Header = ({
                 ))}
               </div>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="justify-center text-sm font-medium text-primary">
-                View all notifications
+              <DropdownMenuItem
+                className="justify-center text-sm font-medium text-primary"
+                asChild
+              >
+                <Link to="/notifications">View all notifications</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -89,9 +93,15 @@ const Header = ({
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Settings</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Account</DropdownMenuItem>
-            <DropdownMenuItem>Preferences</DropdownMenuItem>
-            <DropdownMenuItem>API Keys</DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/settings/account">Account</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/settings/preferences">Preferences</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/settings/api-keys">API Keys</Link>
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="text-destructive">
               Logout
@@ -120,12 +130,18 @@ const Header = ({
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Billing</DropdownMenuItem>
-            <DropdownMenuItem>Subscription</DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/profile">Profile</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/billing">Billing</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/subscription">Subscription</Link>
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-destructive">
-              Logout
+            <DropdownMenuItem className="text-destructive" asChild>
+              <Link to="/logout">Logout</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

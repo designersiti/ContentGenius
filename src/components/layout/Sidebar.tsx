@@ -103,7 +103,9 @@ const Sidebar = ({ activePath = "/" }: SidebarProps) => {
             icon={<Settings size={20} />}
             label="Settings"
             href="/settings"
-            active={activePath === "/settings"}
+            active={
+              activePath === "/settings" || activePath.startsWith("/settings/")
+            }
           />
           <NavItem
             icon={<HelpCircle size={20} />}
